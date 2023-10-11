@@ -1,4 +1,22 @@
 baseURL = 'https://www.sunnygrace.buzz/'
 languageCode = 'zh-cn'
-title = '二熊基地~'
-theme = 'ananke'
+title = '二熊学习基地'
+theme = 'FeelIt'
+
+[params]
+  # FeelIt 主题版本
+  version = "1.0.X"
+
+[menu]
+[[menu.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+[[menu.main]]
+    name = 'Blog'
+    pageRef = '/posts'
+    weight = 20
+[[menu.main]]
+    name = 'Lab'
+    pageRef = '/labs'
+    weight = 30
