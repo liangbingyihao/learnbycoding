@@ -1,6 +1,6 @@
 baseURL = 'https://www.sunnygrace.buzz/'
 languageCode = 'zh-cn'
-title = '二熊学习基地'
+title = '二熊学习园地'
 theme = 'FeelIt'
 
 [params]
