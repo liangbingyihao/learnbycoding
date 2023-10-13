@@ -1,0 +1,76 @@
+---
+title: "Vocabulary"
+date: 2023-10-13T14:07:08+08:00
+draft: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>题库项目</title>
+    <style>
+        /* 样式代码可以根据需要进行修改 */
+    </style>
+</head>
+<body>
+    <h1>题库项目</h1>
+
+    <div id="questions">
+        <div class="question">
+            <p>1. 判断题：1 + 1 = 2</p>
+            <input type="radio" name="q1" value="true"> 是
+            <input type="radio" name="q1" value="false"> 否
+        </div>
+
+        <div class="question">
+            <p>2. 填空题：2 + 3 = <input type="text" id="q2"></p>
+        </div>
+
+        <div class="question">
+            <p>3. 选择题：5 - 3 = ?</p>
+            <select id="q3">
+                <option value="0">请选择答案</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+
+        <button id="submit">提交答案</button>
+    </div>
+
+    <div id="results">
+        <h2>成绩：</h2>
+        <p id="score"></p>
+    </div>
+
+    <script>
+        // JavaScript代码可以根据需要进行修改
+        document.getElementById("submit").addEventListener("click", calculateScore);
+
+        function calculateScore() {
+            const answer1 = document.querySelector('input[name="q1"]:checked').value === "true";
+            const answer2 = parseInt(document.getElementById("q2").value) === 5;
+            const answer3 = parseInt(document.getElementById("q3").value) === 2;
+
+            const totalQuestions = 3;
+            let correctAnswers = 0;
+
+            if (answer1) {
+                correctAnswers++;
+            }
+            if (answer2) {
+                correctAnswers++;
+            }
+            if (answer3) {
+                correctAnswers++;
+            }
+
+            const score = (correctAnswers / totalQuestions) * 100;
+            document.getElementById("score").textContent = `你的得分是：${score.toFixed(2)}%`;
+        }
+    </script>
+</body>
+</html>
