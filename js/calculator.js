@@ -13,4 +13,5 @@ document.addEventListener('DOMContentLoaded', function() {
             result.textContent = 'Please enter valid numbers.';
         }
     });
+    console.log(window.calc.add(101,202));
 });
