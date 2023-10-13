@@ -3,7 +3,14 @@
         <title>All Posts - 二熊线上基地</title>
         <link>https://www.sunnygrace.buzz/posts/</link>
         <description>All Posts | 二熊线上基地</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 20 Nov 2022 09:03:20 -0800</lastBuildDate><atom:link href="https://www.sunnygrace.buzz/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 13 Oct 2023 17:12:26 &#43;0800</lastBuildDate><atom:link href="https://www.sunnygrace.buzz/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>External</title>
+    <link>https://www.sunnygrace.buzz/posts/external/</link>
+    <pubDate>Fri, 13 Oct 2023 17:12:26 &#43;0800</pubDate><guid>https://www.sunnygrace.buzz/posts/external/</guid>
+    <description><![CDATA[Building a static site with Hugo and Webpack https://dev.to/tegandbiscuits/building-a-static-site-with-hugo-and-webpack-pd3
+使用 Webpack 构建 JavaScript 工具库 https://www.yuque.com/hwjfqr/ncfyh7/dkdatt]]></description>
+</item>
+<item>
     <title>开张大吉</title>
     <link>https://www.sunnygrace.buzz/posts/my-first-post/</link>
     <pubDate>Sun, 20 Nov 2022 09:03:20 -0800</pubDate><guid>https://www.sunnygrace.buzz/posts/my-first-post/</guid>
