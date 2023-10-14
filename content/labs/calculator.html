@@ -13,16 +13,23 @@ draft: false
   }
   /* 修改有序列表的行距和字体大小 */
   #result ol {
-  font-size: 24px;
-  line-height: 3;
+  font-size: 20px;
+  line-height: 1.5;
   }
 
   /* 修改列表项的字体大小 */
   #result li {
-  font-size: 20px;
+  font-size: 18px;
   }
 </style>
 <div>
+  题目数量
+  <select id="numPerGroup">
+    <option value="1">1</option>
+    <option value="3">3</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+  </select>
   <label>
     <input type="radio" name="level" value=1> 容易
   </label>
@@ -32,7 +39,7 @@ draft: false
   <label>
     <input type="radio" name="level" value=3> 困难
   </label>
-    <button id="addButton">下一题</button>
+    <button id="addButton">下一组</button>
     <p id="result"></p>
   </div>
   
