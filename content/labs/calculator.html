@@ -23,22 +23,21 @@ draft: false
   }
 </style>
 <div>
-  题目数量
+  年级
+  <select id="levelGroup">
+    <option value="1">学前(10以内)</option>
+    <option value="2">1(100以内)</option>
+    <option value="3">2~3(乘除)</option>
+    <option value="4">4~6(小数)</option>
+    <option value="5">7(有理数)</option>
+  </select>
+  数量
   <select id="numPerGroup">
     <option value="1">1</option>
     <option value="3">3</option>
     <option value="5">5</option>
     <option value="10">10</option>
   </select>
-  <label>
-    <input type="radio" name="level" value=1> 容易
-  </label>
-  <label>
-    <input type="radio" name="level" value=2 checked> 中等
-  </label>
-  <label>
-    <input type="radio" name="level" value=3> 困难
-  </label>
     <button id="checkResult">打分</button>
     <button id="nextGroup">下一组</button>
     <p id="score" class="red-text"></p>
