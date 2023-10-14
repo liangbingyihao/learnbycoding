@@ -15,8 +15,8 @@ theme = 'FeelIt'
 [[menu.main]]
     name = 'Blog'
     pageRef = '/posts'
-    weight = 20
+    weight = 30
 [[menu.main]]
     name = 'Lab'
     pageRef = '/labs'
-    weight = 30
+    weight = 20
