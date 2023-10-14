@@ -3,11 +3,26 @@ title: "Calculator"
 date: 2023-10-12T11:20:50+08:00
 draft: false
 ---
+<style>
+  .red-text {
+    color: red;
+  }
 
+  .blue-text {
+    color: blue;
+  }
+</style>
 <div>
-    <input type="text" id="num1" placeholder="Enter a number">
-    <input type="text" id="num2" placeholder="Enter a number">
-    <button id="addButton">Add</button>
+  <label>
+    <input type="radio" name="level" value=0> 容易
+  </label>
+  <label>
+    <input type="radio" name="level" value=1 checked> 中等
+  </label>
+  <label>
+    <input type="radio" name="level" value=2> 困难
+  </label>
+    <button id="addButton">下一题</button>
     <p id="result"></p>
   </div>
   
