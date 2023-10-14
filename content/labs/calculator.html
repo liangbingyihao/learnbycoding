@@ -11,16 +11,26 @@ draft: false
   .blue-text {
     color: blue;
   }
+  /* 修改有序列表的行距和字体大小 */
+  #result ol {
+  font-size: 24px;
+  line-height: 3;
+  }
+
+  /* 修改列表项的字体大小 */
+  #result li {
+  font-size: 20px;
+  }
 </style>
 <div>
   <label>
-    <input type="radio" name="level" value=0> 容易
+    <input type="radio" name="level" value=1> 容易
   </label>
   <label>
-    <input type="radio" name="level" value=1 checked> 中等
+    <input type="radio" name="level" value=2 checked> 中等
   </label>
   <label>
-    <input type="radio" name="level" value=2> 困难
+    <input type="radio" name="level" value=3> 困难
   </label>
     <button id="addButton">下一题</button>
     <p id="result"></p>
