@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     addButton.addEventListener('click', function() {
         var level = document.querySelector('input[name="level"]:checked');
+        var numPerGroup = parseInt(document.getElementById("numPerGroup").value);
         level = parseInt(level.value);
         const container = document.getElementById('result');
         container.innerHTML = ''; // 清空容器
@@ -25,11 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const ol = document.createElement('ol'); // 创建有序列表元素
             var  questions = [];
             level--;
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < numPerGroup; i++) {
                 var question = window.calc.genFormula(level);
                 
                 const li = document.createElement('li');
-                li.innerHTML = question["term"].replace(/'([^']+)'/g, '<span class="blue-text">$1</span>');
+                li.innerHTML = question["term"].replace(/'([^']+)'/g, '<span class="blue-text">$1</span>')
+                +'<p><input type="text" placeholder="答案">';
                 ol.appendChild(li);
                 questions.push(question);
               }
