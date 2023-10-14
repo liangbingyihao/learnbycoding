@@ -58,22 +58,18 @@ function showMessage(element,msg,show){
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const radioButtons = document.querySelectorAll('input[type="radio"]');
     const nextGroupButton = document.getElementById('nextGroup');
     const container = document.getElementById('result');
-    radioButtons.forEach(radioButton => {
-      radioButton.addEventListener('change', function() {
-        nextGroupButton.dispatchEvent(clickEvent);
-      });
-    });
     document.getElementById('numPerGroup').addEventListener('change', function() {
+      nextGroupButton.dispatchEvent(clickEvent);
+    });
+    document.getElementById('levelGroup').addEventListener('change', function() {
       nextGroupButton.dispatchEvent(clickEvent);
     });
 
     nextGroupButton.addEventListener('click', function() {
-        var level = document.querySelector('input[name="level"]:checked');
+        var level = parseInt(document.getElementById("levelGroup").value);
         var numPerGroup = parseInt(document.getElementById("numPerGroup").value);
-        level = parseInt(level.value);
         container.innerHTML = ''; // 清空容器
         if (level) {
             const ol = document.createElement('ol'); // 创建有序列表元素
