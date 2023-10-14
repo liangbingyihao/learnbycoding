@@ -25,15 +25,22 @@ function checkResult() {
     // 遍历每个匹配的 input 元素并获取其值
     containers.forEach(function(container) {
         const input = container.querySelector('.my-answer')
-        if(isEmpty&&input.value !== ""){
+        if(input.value !== ""){
+          if(isEmpty){
             isEmpty = false;
+          }
+          var correct = input.getAttribute("data-correct");
+          console.log(correct+" vs "+input.value);
+          var result = window.calc.checkResult(correct,input.value);
+          if(result){
+            container.querySelector('.score').textContent = "👍";
+          }else{
+            container.querySelector('.score').textContent = "😄"+correct;
+          }
         }else if (firstResult==null){
-            firstResult = container.querySelector('.score');
+          firstResult = container.querySelector('.score');
         }
-        var correct = input.getAttribute("data-correct");
-        console.log(correct+" vs "+input.value);
         values.push(input.value);
-        container.querySelector('.score').textContent = "😊";
     });
     if(isEmpty&&firstResult!==null){
         firstResult.textContent = "请先输入答案";
@@ -51,13 +58,22 @@ function showMessage(element,msg,show){
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const addButton = document.getElementById('nextGroup');
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    const nextGroupButton = document.getElementById('nextGroup');
+    const container = document.getElementById('result');
+    radioButtons.forEach(radioButton => {
+      radioButton.addEventListener('change', function() {
+        nextGroupButton.dispatchEvent(clickEvent);
+      });
+    });
+    document.getElementById('numPerGroup').addEventListener('change', function() {
+      nextGroupButton.dispatchEvent(clickEvent);
+    });
 
-    addButton.addEventListener('click', function() {
+    nextGroupButton.addEventListener('click', function() {
         var level = document.querySelector('input[name="level"]:checked');
         var numPerGroup = parseInt(document.getElementById("numPerGroup").value);
         level = parseInt(level.value);
-        const container = document.getElementById('result');
         container.innerHTML = ''; // 清空容器
         if (level) {
             const ol = document.createElement('ol'); // 创建有序列表元素
@@ -85,5 +101,5 @@ document.addEventListener('DOMContentLoaded', function() {
         cancelable: true,
         view: window
       });
-    addButton.dispatchEvent(clickEvent);
+    nextGroupButton.dispatchEvent(clickEvent);
 });
