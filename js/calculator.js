@@ -5,13 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const addButton = document.getElementById('addButton');
 
     addButton.addEventListener('click', function() {
-        const value1 = parseFloat(num1.value);
-        const value2 = parseFloat(num2.value);
-        if (!isNaN(value1) && !isNaN(value2)) {
-            result.textContent = 'Result: ' + (value1 + value2);
-        } else {
-            result.textContent = 'Please enter valid numbers.';
-        }
+        const selectedValue = document.querySelector('input[name="level"]:checked');
+        if (selectedValue) {
+            var question = window.calc.genFormula(parseInt(selectedValue.value));
+            var questionStr = question["term"].replace(/'([^']+)'/g, '<span class="blue-text">$1</span>');
+            // result.textContent = question["term"];
+            result.innerHTML = questionStr
+            // result.textContent = 'This is <span class="red-text">red</span> and this is <span class="blue-text">blue</span>'
+          } else {
+            result.textContent = "No option selected.";
+          }
     });
-    console.log(window.calc.add(101,202));
 });
