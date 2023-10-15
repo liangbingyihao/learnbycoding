@@ -81,7 +81,7 @@ function showMessage(element,msg,show){
 }
 
 function getFormulaHtml(question){
-  const question2 = question["term"].replace(/'(\d+\/\d+)'/g, (match, fraction) => {
+  const question2 = question["term"].replace(/\s*'(\d+\/\d+)'/g, (match, fraction) => {
     // 将匹配到的分数字符串进行替换
     return fraction.replace(/(\d+)\/(\d+)/g, '<div class="fraction"><div class="numerator">$1</div><div class="denominator">$2</div></div>');
   });
@@ -92,14 +92,13 @@ function getFormulaHtml(question){
 
     var answer = '<div class="mixed-fraction my-answer-container">答案:\
     <input class="main my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"/>'
-    console.log(question2.length,question["term"].length)
     if(question2.length!=question["term"].length){
       answer += '<div class="fraction">\
       <input class="numerator my-answer" type="text" placeholder="分子"/>\
       <input class="denominator my-answer" type="text" placeholder="分母"/>\
       </div>'
     }
-    answer += '<span class="score"></span></div>'
+    answer += '<span class="score">'+question["term"]+'</span></div>'
     return '<div class="mixed-fraction">'+question2+'</div>'+answer
 }
 
