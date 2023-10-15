@@ -1,5 +1,5 @@
 ---
-title: "Calculator"
+title: "口算天天练"
 date: 2023-10-12T11:20:50+08:00
 draft: false
 ---
@@ -21,6 +21,50 @@ draft: false
   #result li {
   font-size: 18px;
   }
+  
+  .mixed-fraction {
+    display: flex;
+    align-items: center;
+  }
+
+  .integer-part {
+    font-weight: bold;
+  }
+
+  .fraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .my-answer {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+  }
+
+  .numerator {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px ;
+    text-align: center;
+  }
+
+  .denominator {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #000;
+    text-align: center;
+  }
+  input {
+    width: 50px;
+  }
 </style>
 <div>
   年级
@@ -28,21 +72,27 @@ draft: false
     <option value="1">学前(10以内)</option>
     <option value="2">1(100以内)</option>
     <option value="3">2~3(乘除)</option>
-    <option value="4">4~6(小数)</option>
-    <option value="5">7(有理数)</option>
+    <option value="4" selected>4~6(小数)</option>
+    <option value="7">7(有理数)</option>
   </select>
-  数量
+ 题量
   <select id="numPerGroup">
     <option value="1">1</option>
     <option value="3">3</option>
     <option value="5">5</option>
     <option value="10">10</option>
   </select>
+  难度
+   <select id="sizeGroup">
+     <option value="1">1</option>
+     <option value="2" selected>2</option>
+     <option value="3">3</option>
+   </select>
     <button id="nextGroup">换题</button>
     <button id="checkResult">打分</button>
     <p id="score" class="red-text"></p>
     <p id="result"></p>
   </div>
   
-  <script src="/js/index.js?version=5"></script>
-  <script src="/js/calculator.js?version=5"></script>
+  <script src="/js/index.js?version=7"></script>
+  <script src="/js/calculator.js?version=7"></script>
