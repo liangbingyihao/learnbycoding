@@ -20,34 +20,57 @@ function checkResult() {
     const containers = document.querySelectorAll('.my-answer-container');
 
     // 创建一个数组来存储值
-    var values = [],isEmpty=true,firstResult=null;
+    var isEmpty=true,firstResult=null;
 
     // 遍历每个匹配的 input 元素并获取其值
     containers.forEach(function(container) {
-        const input = container.querySelector('.my-answer')
-        if(input.value !== ""){
+        var checked = container.getAttribute('data-checked');
+        if(checked=="1"){
+          return;
+        }
+        const main = container.querySelector('.main');
+        var myAnswer = "";
+        if(main.value !== ""){
+          myAnswer = main.value;
+        }
+        const numerator = container.querySelector('.numerator');
+        const denominator = container.querySelector('.denominator');
+        if(numerator!=null&&numerator.value!==""){
+          if(denominator.value!==""){
+            myAnswer+=" '"+numerator.value+'/'+denominator.value+"'";
+          }
+        }
+        if(myAnswer !== ""){
           if(isEmpty){
             isEmpty = false;
           }
-          var correct = input.getAttribute("data-correct");
-          console.log(correct+" vs "+input.value);
-          var result = window.calc.checkResult(correct,input.value);
-          if(result){
-            container.querySelector('.score').textContent = "👍";
+          container.setAttribute('data-checked', '1');
+          var correct = main.getAttribute("data-correct");
+          var result = window.calc.checkResult(correct,myAnswer);
+          if(result==null){
+            console.log(correct+" ✅ "+myAnswer,result);
+            container.querySelector('.score').textContent = "✅";
           }else{
-            container.querySelector('.score').textContent = "😄"+correct;
+            main.classList.add('red-text');
+            main.value=result.main;
+            if(numerator!=null&&result.n!=""){
+              numerator.classList.add('red-text');
+              numerator.value=result.n;
+            }
+            if(denominator!=null&&result.d!=""){
+              denominator.classList.add('red-text');
+              denominator.value=result.d;
+            }
+            // console.log(correct+" ❌ "+myAnswer,result);
+            container.querySelector('.score').textContent = "❌";
           }
         }else if (firstResult==null){
           firstResult = container.querySelector('.score');
         }
-        values.push(input.value);
     });
     if(isEmpty&&firstResult!==null){
         firstResult.textContent = "请先输入答案";
     }
-
-    // 打印值或进行其他操作
-    console.log(values);
 }
 
 function showMessage(element,msg,show){
@@ -55,6 +78,29 @@ function showMessage(element,msg,show){
     // const element = document.getElementById("message");
     element.textContent = msg;
     element.style.display = show;
+}
+
+function getFormulaHtml(question){
+  const question2 = question["term"].replace(/'(\d+\/\d+)'/g, (match, fraction) => {
+    // 将匹配到的分数字符串进行替换
+    return fraction.replace(/(\d+)\/(\d+)/g, '<div class="fraction"><div class="numerator">$1</div><div class="denominator">$2</div></div>');
+  });
+    // return '<div class="mixed-fraction">'+replacedString+"</div>"
+    // +'<p class="my-answer-container">\
+    // <input class="my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"> \
+    // <span class="score"></span>'
+
+    var answer = '<div class="mixed-fraction my-answer-container">答案:\
+    <input class="main my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"/>'
+    console.log(question2.length,question["term"].length)
+    if(question2.length!=question["term"].length){
+      answer += '<div class="fraction">\
+      <input class="numerator my-answer" type="text" placeholder="分子"/>\
+      <input class="denominator my-answer" type="text" placeholder="分母"/>\
+      </div>'
+    }
+    answer += '<span class="score"></span></div>'
+    return '<div class="mixed-fraction">'+question2+'</div>'+answer
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -66,21 +112,27 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('levelGroup').addEventListener('change', function() {
       nextGroupButton.dispatchEvent(clickEvent);
     });
+    document.getElementById('sizeGroup').addEventListener('change', function() {
+      nextGroupButton.dispatchEvent(clickEvent);
+    });
 
     nextGroupButton.addEventListener('click', function() {
         var level = parseInt(document.getElementById("levelGroup").value);
-        var numPerGroup = parseInt(document.getElementById("numPerGroup").value);
+        var number = parseInt(document.getElementById("numPerGroup").value);
+        var size = parseInt(document.getElementById("sizeGroup").value);
         container.innerHTML = ''; // 清空容器
         if (level) {
+            --size;
             const ol = document.createElement('ol'); // 创建有序列表元素
             var  questions = [];
-            level--;
-            for (let i = 0; i < numPerGroup; i++) {
-                var question = window.calc.genFormula(level);
+            for (let i = 0; i < number; i++) {
+                var question = window.calc.genFormula(level,size);
                 
                 const li = document.createElement('li');
-                li.innerHTML = question["term"].replace(/'([^']+)'/g, '<span class="blue-text">$1</span>')
-                +'<p class="my-answer-container"><input class="my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"> <span class="score"></span>'
+                // li.innerHTML = question["term"].replace(/'([^']+)'/g, '<span class="blue-text">$1</span>')
+                // +'<p class="my-answer-container"><input class="my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"> <span class="score"></span>'
+                li.innerHTML = getFormulaHtml(question);
+                
                 ol.appendChild(li);
                 questions.push(question);
               }
