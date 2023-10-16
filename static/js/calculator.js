@@ -1,21 +1,7 @@
-function createOrderedList() {
-    const ol = document.createElement('ol'); // 创建有序列表元素
-
-    // 创建并添加带序号的列表项
-    for (let i = 1; i <= 5; i++) {
-      const li = document.createElement('li');
-      li.textContent = `Item ${i}`;
-      ol.appendChild(li);
-    }
-
-    const container = document.getElementById('result');
-    container.innerHTML = ''; // 清空容器
-    container.appendChild(ol); // 将有序列表添加到容器中
-  }
 
 function checkResult() {
-    const scoreContainers = document.getElementById("score");
-    showMessage(scoreContainers,"请先输入答案","none");
+    // const scoreContainers = document.getElementById("score");
+    // showMessage(scoreContainers,"请先输入答案","none");
     // 获取所有具有 "my-answer" 类名的 input 元素
     const containers = document.querySelectorAll('.my-answer-container');
 
@@ -95,6 +81,26 @@ function isNumeric(input) {
   return !isNaN(number);
 }
 
+function onStart(){
+
+  const inputs = document.querySelectorAll('input.my-answer');
+
+  if(inputs.length>0){
+    console.log(inputs.length);
+    inputs[0].focus();
+
+    const last = inputs[inputs.length-1];
+    last.addEventListener("blur", function(){
+      // 获取当前具有焦点的元素
+      const focusedElement = document.activeElement;
+      // 检查是否是一个 <input> 元素
+      if (focusedElement.tagName !== "INPUT") {
+        checkResult();
+      }
+    });
+  }
+}
+
 function nextInput(event, currentInput){
   if (event.key === 'Enter' || event.key === ' ') {
     // 如果按下的是回车键（Enter）或空格键
@@ -128,11 +134,7 @@ function nextInput(event, currentInput){
           }
         }
     }
-}
-}
-
-function onFinish(event){
-  // checkResult();
+  }
 }
 
 function startInput(event){
@@ -152,62 +154,66 @@ function getFormulaHtml(question){
     // <span class="score"></span>'
 
     var answer = '<div class="mixed-fraction my-answer-container bg-2">答案:\
-    <input class="main my-answer" type="number" placeholder="答案" onkeydown="nextInput(event, this)" onblur="onFinish(event)" onfocus="startInput(event)" data-correct="'+question["resultStr"]+'"/>'
+    <input class="main my-answer" type="number" placeholder="答案" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" data-correct="'+question["resultStr"]+'"/>'
     if(question2.length!=question["term"].length){
       answer += '<div class="fraction">\
-      <input class="numerator my-answer" type="number" onkeydown="nextInput(event, this)" onblur="onFinish(event)" onfocus="startInput(event)" placeholder="分子"/>\
-      <input class="denominator my-answer" type="number" onkeydown="nextInput(event, this)" onblur="onFinish(event)" onfocus="startInput(event)" placeholder="分母"/>\
+      <input class="numerator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="分子"/>\
+      <input class="denominator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="分母"/>\
       </div>'
     }
     answer += '<span class="score"></span></div>'
     return '<div class="mixed-fraction bg-1">'+question2+'</div>'+answer
 }
 
+function switchQuestions(){
+  const container = document.getElementById('result');
+  var level = parseInt(document.getElementById("levelGroup").value);
+  var number = parseInt(document.getElementById("numPerGroup").value);
+  var size = parseInt(document.getElementById("sizeGroup").value);
+  container.innerHTML = ''; // 清空容器
+  if (level) {
+      --size;
+      const ol = document.createElement('div'); // 创建有序列表元素
+      var  questions = [];
+      for (let i = 0; i < number; i++) {
+          var question = window.calc.genFormula(level,size);
+          question["term"] = '<span class="no-part">'+(i+1)+'. </span>'+question["term"];
+          const li = document.createElement('div');
+          // li.innerHTML = question["term"].replace(/'([^']+)'/g, '<span class="blue-text">$1</span>')
+          // +'<p class="my-answer-container"><input class="my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"> <span class="score"></span>'
+          li.innerHTML = getFormulaHtml(question);
+          
+          ol.appendChild(li);
+          questions.push(question);
+        }
+      container.appendChild(ol); // 将有序列表添加到容器中
+      onStart();
+  } else {
+    container.textContent = "No option selected.";
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    const nextGroupButton = document.getElementById('nextGroup');
-    const container = document.getElementById('result');
     document.getElementById('numPerGroup').addEventListener('change', function() {
-      nextGroupButton.dispatchEvent(clickEvent);
+      const container = document.getElementById('result');
+      container.innerHTML = ''; 
     });
     document.getElementById('levelGroup').addEventListener('change', function() {
-      nextGroupButton.dispatchEvent(clickEvent);
+      const container = document.getElementById('result');
+      container.innerHTML = ''; 
     });
     document.getElementById('sizeGroup').addEventListener('change', function() {
-      nextGroupButton.dispatchEvent(clickEvent);
+      const container = document.getElementById('result');
+      container.innerHTML = ''; 
     });
 
-    nextGroupButton.addEventListener('click', function() {
-        var level = parseInt(document.getElementById("levelGroup").value);
-        var number = parseInt(document.getElementById("numPerGroup").value);
-        var size = parseInt(document.getElementById("sizeGroup").value);
-        container.innerHTML = ''; // 清空容器
-        if (level) {
-            --size;
-            const ol = document.createElement('div'); // 创建有序列表元素
-            var  questions = [];
-            for (let i = 0; i < number; i++) {
-                var question = window.calc.genFormula(level,size);
-                question["term"] = '<span class="no-part">'+(i+1)+'. </span>'+question["term"];
-                const li = document.createElement('div');
-                // li.innerHTML = question["term"].replace(/'([^']+)'/g, '<span class="blue-text">$1</span>')
-                // +'<p class="my-answer-container"><input class="my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"> <span class="score"></span>'
-                li.innerHTML = getFormulaHtml(question);
-                
-                ol.appendChild(li);
-                questions.push(question);
-              }
-            container.appendChild(ol); // 将有序列表添加到容器中
-          } else {
-            container.textContent = "No option selected.";
-          }
+    document.getElementById('nextGroup').addEventListener('click', function() {
+      switchQuestions();
     });
     document.getElementById('checkResult').addEventListener('click', function() {
-        checkResult();
+      checkResult();
     });
-    const clickEvent = new MouseEvent("click", {
-        bubbles: true,
-        cancelable: true,
-        view: window
-      });
-    nextGroupButton.dispatchEvent(clickEvent);
+    // switchQuestions();
+    // const clickEvent = new Event("click");
+    // document.getElementById('nextGroup').dispatchEvent(clickEvent);
 });
