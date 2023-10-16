@@ -51,21 +51,29 @@ draft: false
     width: 50px;
   }
 </style>
-#cmd: "copy lib\index.js ..\learnbycoding\static\js\"
+<script>
+  var x = 'cmd: "copy lib\index.js ..\learnbycoding\static\js\"'
+  
+document.addEventListener('DOMContentLoaded', function() {
+  const inputElement = document.getElementById('textInput');
+  
+  // 添加input事件监听器
+  inputElement.addEventListener('keydown', function(event) {
+      const inputValue = event.target.value;
+      console.log('输入完成事件触发，输入的内容为: ' + inputValue);
+      document.getElementById('result').innerHTML=event.key
+      // 在这里执行你的处理逻辑，比如验证、搜索建议等
+  });
+  inputElement.addEventListener('blur', function(event) {
+    // 输入框失去焦点时，可能输入法窗口已关闭
+    // 在这里执行相关操作
+      document.getElementById('result').innerHTML="finish"
+  });
+})
+  </script>
 </head>
 <body>
-  2
-  <div class="mixed-fraction">
-    <div class="integer-part">2</div>
-    <div class="fraction">
-      <div class="numerator">32</div>
-      <div class="denominator">41</div>
-    </div>
-    <input class="my-answer" type="text" placeholder="答案" data-correct="1"/>
-    <div class="fraction">
-      <input class="numerator my-answer" type="text" placeholder="分子" data-correct="1"/>
-      <input class="denominator my-answer" type="text" placeholder="分母" data-correct="1"/>
-    </div>
-  </div>
+  <input type="text" id="textInput" placeholder="输入完成后触发事件">
+  <div id="result">aa</div>
 </body>
 </html>

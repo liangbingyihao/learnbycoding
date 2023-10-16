@@ -11,6 +11,17 @@ draft: false
   .blue-text {
     color: blue;
   }
+
+  .score {
+    margin-left: 16px;
+  }
+
+.bg-1 {
+    background-color:#f0f0f0
+}
+.bg-2 {
+    background-color:#f0f8ff
+}
   /* 修改有序列表的行距和字体大小 */
   #result ol {
   font-size: 20px;
@@ -26,12 +37,13 @@ draft: false
     display: flex;
     align-items: center;
     padding: 0;
-    margin: 0;
-    background-color:yellow
+    margin-bottom: 4px;
   }
 
-  .integer-part {
+  .no-part {
     font-weight: bold;
+    color: blue;
+    margin: 4px;
   }
 
   .fraction {
@@ -40,7 +52,6 @@ draft: false
     align-items: center;
     padding: 0;
     margin: 0;
-    background-color: blueviolet;
   }
 
   .my-answer {
@@ -95,26 +106,11 @@ draft: false
      <option value="3">3</option>
    </select>
 
-
-
-   
-  <div class="mixed-fraction">
-    2345
-    <div class="integer-part">2</div>
-    <div class="fraction">
-      <div class="numerator">32</div>
-      <div class="denominator">41</div>
-    </div>
-    +123
-  </div>
-
-
-
     <button id="nextGroup">换题</button>
     <button id="checkResult">打分</button>
-    <p id="score" class="red-text"></p>
-    <p id="result"></p>
+    <p id="score" class="red-text score"></p>
+    <div id="result"></div>
   </div>
   
   <script src="/js/index.js?version=8"></script>
-  <script src="/js/calculator.js?version=8"></script>
+  <script src="/js/calculator.js?version=13"></script>
