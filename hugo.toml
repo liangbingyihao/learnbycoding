@@ -60,20 +60,30 @@ theme = 'FeelIt'
       # 当你没有在文章前置参数中设置 "hiddenFromHomePage" 时的默认行为
       defaultHiddenFromHomePage = false
 
+ # 页面底部信息配置
+  [params.footer]
+    enable = true
+    # LoveIt 新增 | 0.2.0 自定义内容 (支持 HTML 格式)
+    custom = ''
+    # LoveIt 新增 | 0.2.0 是否显示 Hugo 和主题信息
+    hugo = false
+    # LoveIt 新增 | 0.2.0 是否显示版权信息
+    copyright = true
+    # LoveIt 新增 | 0.2.0 是否显示作者
+    author = true
+    # 网站创立年份
+    since = 2019
+    # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
+    icp = ""
+    # 许可协议信息 (支持 HTML 格式)
+    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
 [menu]
 [[menu.main]]
     name = '日记'
     pageRef = '/posts'
     weight = 30
 [[menu.main]]
-    name = '实验'
-    pageRef = '/labs'
+    name = '工具'
+    pageRef = '/categories'
     weight = 20
-[[menu.main]]
-    weight = 3
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "分类"
-    url = "/categories/"
-    title = ""
