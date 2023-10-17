@@ -1,5 +1,5 @@
 
-function checkResult() {
+function checkResult(force=false) {
     // const scoreContainers = document.getElementById("score");
     // showMessage(scoreContainers,"请先输入答案","none");
     // 获取所有具有 "my-answer" 类名的 input 元素
@@ -26,7 +26,7 @@ function checkResult() {
             myAnswer+=" '"+numerator.value+'/'+denominator.value+"'";
           }
         }
-        if(myAnswer !== ""){
+        if(myAnswer !== "" || force){
           if(isEmpty){
             isEmpty = false;
           }
@@ -48,7 +48,9 @@ function checkResult() {
               denominator.value=result.d;
             }
             // console.log(correct+" ❌ "+myAnswer,result);
-            container.querySelector('.score').textContent = "❌";
+            if(myAnswer!==""){
+              container.querySelector('.score').textContent = "❌";
+            }
           }
           main.disabled  = true;
           if(numerator!=null){
@@ -61,7 +63,7 @@ function checkResult() {
           firstResult = container.querySelector('.score');
         }
     });
-    if(isEmpty&&firstResult!==null){
+    if(!force&&isEmpty&&firstResult!==null){
         firstResult.textContent = "请先输入答案";
     }
 }
@@ -144,18 +146,20 @@ function startInput(event){
 }
 
 function getFormulaHtml(question){
-  const question2 = question["term"].replace(/\s*'(\d+\/\d+)'/g, (match, fraction) => {
+  var question2 = question["term"].replace(/\s*'(\d+\/\d+)'/g, (match, fraction) => {
     // 将匹配到的分数字符串进行替换
     return fraction.replace(/(\d+)\/(\d+)/g, '<div class="fraction"><div class="numerator">$1</div><div class="denominator">$2</div></div>');
   });
-    // return '<div class="mixed-fraction">'+replacedString+"</div>"
+  var isMixedFraction = question2.length!=question["term"].length;
+  question2 = question2.replace(/(\d+)\/(\d+)/g, '$1÷$2').replace(/\*/g, '×');
+    // return '<div class="mixed-fraction">'+replacedString+"</div>" .replace(/\*/g, '×')
     // +'<p class="my-answer-container">\
     // <input class="my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"> \
     // <span class="score"></span>'
 
     var answer = '<div class="mixed-fraction my-answer-container bg-2">答案:\
     <input class="main my-answer" type="number" placeholder="答案" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" data-correct="'+question["resultStr"]+'"/>'
-    if(question2.length!=question["term"].length){
+    if(isMixedFraction){
       answer += '<div class="fraction">\
       <input class="numerator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="分子"/>\
       <input class="denominator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="分母"/>\
@@ -211,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
       switchQuestions();
     });
     document.getElementById('checkResult').addEventListener('click', function() {
-      checkResult();
+      checkResult(true);
     });
     // switchQuestions();
     // const clickEvent = new Event("click");
