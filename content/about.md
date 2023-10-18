@@ -1,7 +1,7 @@
 +++
 title = 'About'
 date = 2023-10-19T01:28:23+08:00
-draft = true
+draft = false
 +++
 
 ### 目标
