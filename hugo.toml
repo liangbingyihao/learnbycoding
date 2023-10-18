@@ -1,6 +1,6 @@
 baseURL = 'https://www.sunnygrace.buzz/'
 languageCode = 'zh-cn'
-title = '二熊线上基地'
+title = '中小学生工具合集'
 theme = 'FeelIt'
 
 [params]

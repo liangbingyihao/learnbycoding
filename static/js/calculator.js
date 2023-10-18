@@ -116,6 +116,7 @@ function onLeave(e) {
 }
 
 function nextInput(event, currentInput){
+  console.log("nextInput")
   if (event.key === 'Enter' || event.key === ' ') {
     // 如果按下的是回车键（Enter）或空格键
     // 在这里执行相应的操作
