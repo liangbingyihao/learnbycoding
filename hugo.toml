@@ -1,6 +1,6 @@
 baseURL = 'https://www.quizcub.com/'
 languageCode = 'zh-cn'
-title = '学习类工具合集'
+title = '快来测一测'
 theme = 'FeelIt'
 
 [params]
@@ -16,9 +16,9 @@ theme = 'FeelIt'
   # LoveIt 新增 | 0.2.0 日期格式
   dateFormat = "2006-01-02"
   # 网站标题, 用于 Open Graph 和 Twitter Cards
-  title = "有趣的工具合集"
+  title = "快来测一测"
   # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
-  description = "数学语文英语小工具合集 有理数混合计算 简便运算 编程 爱好者 "
+  description = "有趣的工具合集 数学语文英语 测试 学习小工具合集 有理数混合计算 简便运算 编程 爱好者 "
   # 网站图片, 用于 Open Graph 和 Twitter Cards
 
 # 作者配置
@@ -44,7 +44,7 @@ theme = 'FeelIt'
       # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题 (允许 HTML 格式)
-      subtitle = "中小学生小工具合集"
+      subtitle = "欢迎光临，快来一起测一测"
       # 是否为副标题显示打字机动画
       typeit = true
       # 是否显示社交账号
