@@ -9,21 +9,25 @@ function checkResult(force=false) {
     var isEmpty=true,firstResult=null;
 
     // 遍历每个匹配的 input 元素并获取其值
+    var all_checked =0;
     containers.forEach(function(container) {
         var checked = container.getAttribute('data-checked');
         if(checked=="1"){
+          ++all_checked;
           return;
         }
         const main = container.querySelector('.main');
         var myAnswer = "";
         if(main.value !== ""){
           myAnswer = main.value;
+        }else{
+          myAnswer = "0"
         }
         const numerator = container.querySelector('.numerator');
         const denominator = container.querySelector('.denominator');
         if(numerator!=null&&numerator.value!==""){
           if(denominator.value!==""){
-            myAnswer+=" '"+numerator.value+'/'+denominator.value+"'";
+            myAnswer+=" "+numerator.value+'/'+denominator.value;
           }
         }
         if(myAnswer !== "" || force){
@@ -33,17 +37,19 @@ function checkResult(force=false) {
           container.setAttribute('data-checked', '1');
           var correct = main.getAttribute("data-correct");
           var result = window.calc.checkResult(correct,myAnswer);
+          console.log(correct,myAnswer,result);
           if(result==null){
-            // console.log(correct+" ✅ "+myAnswer,result);
             container.querySelector('.score').textContent = "✅";
           }else{
             main.classList.add('red-text');
-            main.value=result.main;
+            if(result.main!="0"||result.n=="0"){
+              main.value=result.main;
+            }
             if(numerator!=null&&result.n!=""){
               numerator.classList.add('red-text');
               numerator.value=result.n;
             }
-            if(denominator!=null&&result.d!=""){
+            if(denominator!=null&&result.d!=""&&result.d!="1"){
               denominator.classList.add('red-text');
               denominator.value=result.d;
             }
@@ -66,6 +72,7 @@ function checkResult(force=false) {
     if(!force&&isEmpty&&firstResult!==null){
         firstResult.textContent = "请先输入答案";
     }
+    return all_checked==containers.length;
 }
 
 function showMessage(element,msg,show){
@@ -88,18 +95,23 @@ function onStart(){
   const inputs = document.querySelectorAll('input.my-answer');
 
   if(inputs.length>0){
-    console.log(inputs.length);
     inputs[0].focus();
 
-    const last = inputs[inputs.length-1];
-    last.addEventListener("blur", function(){
-      // 获取当前具有焦点的元素
-      const focusedElement = document.activeElement;
-      // 检查是否是一个 <input> 元素
-      if (focusedElement.tagName !== "INPUT") {
-        checkResult();
-      }
-    });
+    // const last = inputs[inputs.length-1];
+    // last.addEventListener("blur", function(){
+    //   // 获取当前具有焦点的元素
+    //   const focusedElement = document.activeElement;
+    //   // 检查是否是一个 <input> 元素
+    //   if (focusedElement.tagName !== "INPUT") {
+    //     checkResult();
+    //   }
+    // });
+  }
+}
+
+function onLeave(e) {
+  if(e.target.value==""){
+    e.target.value="0";
   }
 }
 
@@ -120,7 +132,9 @@ function nextInput(event, currentInput){
         var nextIndex = currentIndex + 1;
         while (true) {
           if(checked==inputs.length){
-            checkResult();
+            if(checkResult()){
+              switchQuestions();
+            }
             return;
           }
           if(nextIndex == inputs.length){
@@ -140,26 +154,28 @@ function nextInput(event, currentInput){
 }
 
 function startInput(event){
-  if(event.target.readOnly=false){
+  console.log("startInput "+event.target.disabled);
+  if(!event.target.disabled){
     event.target.value = "";
   }
 }
 
 function getFormulaHtml(question){
+  console.log("question:",question);
   var question2 = question["term"].replace(/\s*'(\d+\/\d+)'/g, (match, fraction) => {
     // 将匹配到的分数字符串进行替换
     return fraction.replace(/(\d+)\/(\d+)/g, '<div class="fraction"><div class="numerator">$1</div><div class="denominator">$2</div></div>');
   });
-  var isMixedFraction = question2.length!=question["term"].length;
-  question2 = question2.replace(/(\d+)\/(\d+)/g, '$1÷$2').replace(/\*/g, '×');
+  // var isMixedFraction = question2.length!=question["term"].length;
+  // question2 = question2.replace(/(\d+)\/(\d+)/g, '$1÷$2').replace(/\*/g, '×');
     // return '<div class="mixed-fraction">'+replacedString+"</div>" .replace(/\*/g, '×')
     // +'<p class="my-answer-container">\
     // <input class="my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"> \
     // <span class="score"></span>'
 
     var answer = '<div class="mixed-fraction my-answer-container bg-2">答案:\
-    <input class="main my-answer" type="number" placeholder="答案" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" data-correct="'+question["resultStr"]+'"/>'
-    if(isMixedFraction){
+    <input class="main my-answer" type="number" placeholder="答案" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" onblur="onLeave(event)" data-correct="'+question["value"]+'"/>'
+    if(question2.length!=question["term"].length){
       answer += '<div class="fraction">\
       <input class="numerator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="分子"/>\
       <input class="denominator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="分母"/>\
