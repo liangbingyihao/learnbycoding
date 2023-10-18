@@ -80,10 +80,14 @@ theme = 'FeelIt'
 
 [menu]
 [[menu.main]]
-    name = '日记'
+    name = '点滴'
     pageRef = '/posts'
     weight = 30
 [[menu.main]]
     name = '工具'
     pageRef = '/categories'
     weight = 20
+[[menu.main]]
+  name = "关于"
+  url = "/about/"
+  weight = 40
