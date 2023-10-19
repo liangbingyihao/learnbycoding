@@ -42,7 +42,7 @@ function checkResult(force=false) {
             container.querySelector('.score').textContent = "✅";
           }else{
             main.classList.add('red-text');
-            if(result.main!="0"||result.n=="0"){
+            if(result.main!=0||result.n==0){
               main.value=result.main;
             }
             if(numerator!=null&&result.n!=""){
