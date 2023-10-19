@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('checkResult').addEventListener('click', function() {
       checkResult(true);
     });
-    document.getElementById('toc-static').innerHTML="";
+    //document.getElementById('toc-static').innerHTML="";
     // switchQuestions();
     // const clickEvent = new Event("click");
     // document.getElementById('nextGroup').dispatchEvent(clickEvent);
