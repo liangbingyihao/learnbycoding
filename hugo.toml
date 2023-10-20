@@ -1,6 +1,6 @@
 baseURL = 'https://www.quizcub.com/'
 languageCode = 'zh-cn'
-title = '快来测一测'
+title = '快乐测一测'
 theme = 'FeelIt'
 
 [params]
@@ -16,9 +16,9 @@ theme = 'FeelIt'
   # LoveIt 新增 | 0.2.0 日期格式
   dateFormat = "2006-01-02"
   # 网站标题, 用于 Open Graph 和 Twitter Cards
-  title = "快来测一测"
+  title = "快乐测一测"
   # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
-  description = "有趣的工具合集 数学语文英语 测试 学习小工具合集 有理数混合计算 简便运算 编程 爱好者 "
+  description = "关于编程、写作、生活的点滴记录。有趣的工具合集 数学语文英语 测试 学习小工具合集 有理数混合计算 简便运算 编程 爱好者 "
   # 网站图片, 用于 Open Graph 和 Twitter Cards
 
 # 作者配置
@@ -80,12 +80,12 @@ theme = 'FeelIt'
 
 [menu]
 [[menu.main]]
-    name = '点滴'
+    name = '认识自己'
     pageRef = '/posts'
     weight = 30
 [[menu.main]]
-    name = '工具'
-    pageRef = '/categories'
+    name = '认识世界'
+    pageRef = '/labs'
     weight = 20
 [[menu.main]]
   name = "关于"
