@@ -193,7 +193,6 @@ function switchQuestions() {
   var size = parseInt(document.getElementById("sizeGroup").value);
   container.innerHTML = ''; // 清空容器
   if (level) {
-    --size;
     const ol = document.createElement('div'); // 创建有序列表元素
     var questions = [];
     for (let i = 0; i < number; i++) {
