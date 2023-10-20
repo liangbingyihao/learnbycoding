@@ -1,1 +1,14 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - 快来测一测</title><link>https://www.quizcub.com/posts/</link><description>All Posts | 快来测一测</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 12 Oct 2023 11:20:50 +0800</lastBuildDate><atom:link href="https://www.quizcub.com/posts/" rel="self" type="application/rss+xml"/><item><title>运算大师</title><link>https://www.quizcub.com/posts/calculator/</link><pubDate>Thu, 12 Oct 2023 11:20:50 +0800</pubDate><guid>https://www.quizcub.com/posts/calculator/</guid><description> 年级 10以内 100以内 乘除 小数&amp;分数 有理数 题量 1 3 5 10 难度 单项 多项 新题 答案 可回车或空格切换输入框/切换题目</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - 二熊线上基地</title>
+        <link>https://www.sunnygrace.buzz/posts/</link>
+        <description>All Posts | 二熊线上基地</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 20 Nov 2022 09:03:20 -0800</lastBuildDate><atom:link href="https://www.sunnygrace.buzz/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>开张大吉</title>
+    <link>https://www.sunnygrace.buzz/posts/my-first-post/</link>
+    <pubDate>Sun, 20 Nov 2022 09:03:20 -0800</pubDate><guid>https://www.sunnygrace.buzz/posts/my-first-post/</guid>
+    <description><![CDATA[Introduction This is bold text, and this is emphasized text.
+Visit the Hugo website!]]></description>
+</item>
+</channel>
+</rss>
