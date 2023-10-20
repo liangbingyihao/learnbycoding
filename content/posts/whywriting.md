@@ -1,9 +1,8 @@
 +++
 title = '为什么开始写作这件事'
 date = 2023-10-20T23:17:56+08:00
-draft = true
+draft = false
 description = '写作的一些思考 认识世界 认识自己 如何写好一篇文章'
-categories= ["认识自己"]
 +++
 
 
