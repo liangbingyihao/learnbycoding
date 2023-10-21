@@ -19,15 +19,23 @@ tags= ["Hugo"]
 
 在Hugo项目中新加文件layouts/shortcodes/custom-js.html
 ```
-<style>
-    .red-text {
-        color: red;
-    }
-</style>
-<div>
-    <input class="red-text" type="text" id="textInput" placeholder="试试输入点东西">
-    <div id="result"></div>
-</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputElement = document.getElementById('textInput');
+      
+      // 添加input事件监听器
+      inputElement.addEventListener('keydown', function(event) {
+          const inputValue = event.target.value;
+          document.getElementById('result').innerHTML=event.key
+          // 在这里执行你的处理逻辑，比如验证、搜索建议等
+      });
+      inputElement.addEventListener('blur', function(event) {
+        // 输入框失去焦点时，可能输入法窗口已关闭
+        // 在这里执行相关操作
+          document.getElementById('result').innerHTML="finish"
+      });
+    })
+</script>
 ```
 以及新文件layouts/shortcodes/custom-html.html
 ```
