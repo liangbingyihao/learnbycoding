@@ -39,7 +39,7 @@ theme = 'FeelIt'
       # Gravatar 邮箱，用于优先在主页显示的头像
       gravatarEmail = ""
       # 主页显示头像的 URL
-      avatarURL = "/images/avatar.jpg"
+      # avatarURL = "/images/avatar.jpg"
       # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题 (允许 HTML 格式)
@@ -94,7 +94,7 @@ defaultContentLanguageInSubdir = false
       identifier = "posts"
       pre = ""
       post = ""
-      name = "认识自己"
+      name = "点滴"
       url = "/posts/"
       title = ""
       weight = 1
@@ -102,7 +102,7 @@ defaultContentLanguageInSubdir = false
       identifier = "labs"
       pre = ""
       post = ""
-      name = "认识世界"
+      name = "工具集"
       url = "/Labs/"
       title = ""
       weight = 2
@@ -131,7 +131,7 @@ defaultContentLanguageInSubdir = false
     title = 'QuizIt'
     weight = 2
     [languages.en.params]
-      subtitle = 'Reference, Tutorials, and Explanations'
+      subtitle = 'Records of Programming, Writing, and Life. An Exciting Collection of Tools. A Collection of Learning Tools for Mathematics, Language, and English Testing. Rational Number Mixed Calculations, Simple Calculations, Programming'
     [[languages.en.menu.main]]
       identifier = "labs"
       pre = ""
