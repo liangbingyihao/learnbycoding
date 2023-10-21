@@ -1,0 +1,127 @@
+---
+title: "Math Master"
+date: 2023-10-12T11:20:50+08:00
+draft: false
+description: "Addition and Subtraction within 10, Addition and Subtraction within 100, Multiplication and Division Operations, Fractions, Decimals, Mixed Operations, Simple Calculations, Automatic Problem Generation, Error Correction"
+categories: ["tools","maths"]
+tags: ["maths"]
+---
+<style>
+  .red-text {
+    color: red;
+  }
+
+  .blue-text {
+    color: blue;
+  }
+
+  .score {
+    margin-left: 16px;
+  }
+
+.bg-1 {
+    background-color:#f0f0f0
+}
+.bg-2 {
+    background-color:#f0f8ff
+}
+  /* 修改有序列表的行距和字体大小 */
+  #result ol {
+  font-size: 20px;
+  line-height: 1.5;
+  }
+
+  /* 修改列表项的字体大小 */
+  #result li {
+  font-size: 18px;
+  }
+
+  .question-menu {
+    font-size: 20px;
+  }
+  
+  .mixed-fraction {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 4px;
+    font-size: 24px;
+  }
+
+  .no-part {
+    font-weight: bold;
+    color: blue;
+    margin: 4px;
+  }
+
+  .fraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .my-answer {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+  }
+
+  .numerator {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px ;
+    text-align: center;
+  }
+
+  .denominator {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #000;
+    text-align: center;
+  }
+  input {
+    width: 70px;
+  }
+</style>
+<div>
+<div class="question-menu">
+  Type
+  <select id="levelGroup">
+    <option value="1">+/- within 10</option>
+    <option value="2">+/- within 100</option>
+    <option value="3">×/÷</option>
+    <option value="4" selected>Fractions, Decimals</option>
+    <option value="7">Rational Numbers</option>
+  </select>
+  Quantity of Questions
+  <select id="numPerGroup">
+    <option value="1">1</option>
+    <option value="3">3</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+  </select>
+  <p>
+  Level
+   <select id="sizeGroup">
+     <option value="1">Monomial</option>
+     <option value="2" selected>Polynomial</option>
+   </select>
+
+    <button id="nextGroup">Next Quize</button>
+    <button id="checkResult">Check</button>
+  </div>
+    Switch between input fields or switch between questions using Enter or Spacebar
+    <p id="score" class="red-text score"></p>
+    <div id="result"></div>
+  </div>
+  
+  <script src="/js/index.js?version=15"></script>
+  <script src="/js/calculator.js?version=39"></script>
