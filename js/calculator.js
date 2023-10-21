@@ -160,7 +160,8 @@ function startInput(event) {
 }
 
 function getFormulaHtml(question) {
-  console.log("question:", question);
+  let lan = document.getElementById("language-select-desktop").value;
+  console.log("lan:", lan);
   var question2 = question["term"].replace(/\s*'(\d+\/\d+)'/g, (match, fraction) => {
     // 将匹配到的分数字符串进行替换
     return fraction.replace(/(\d+)\/(\d+)/g, '<div class="fraction"><div class="numerator">$1</div><div class="denominator">$2</div></div>');
