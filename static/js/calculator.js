@@ -1,3 +1,20 @@
+var  lanInThisPage;
+const cnTextForLans = {
+  answer:["答案","int."],
+  numerator:["分子","num."],
+  denominator:["分母","denom."]
+}
+function getTextForLan(lan,k){
+  let texts = cnTextForLans[k]
+  if(texts==null||texts==undefined){
+    return k;
+  }
+  if(lan=="cn"){
+    return texts[0];
+  }else{
+    return texts[1];
+  }
+}
 
 function checkResult(force = false) {
   // const scoreContainers = document.getElementById("score");
@@ -160,8 +177,6 @@ function startInput(event) {
 }
 
 function getFormulaHtml(question) {
-  let lan = document.getElementById("language-select-desktop").value;
-  console.log("lan:", lan);
   var question2 = question["term"].replace(/\s*'(\d+\/\d+)'/g, (match, fraction) => {
     // 将匹配到的分数字符串进行替换
     return fraction.replace(/(\d+)\/(\d+)/g, '<div class="fraction"><div class="numerator">$1</div><div class="denominator">$2</div></div>');
@@ -175,12 +190,12 @@ function getFormulaHtml(question) {
 
   var type = question["result"].s == -1 && question["result"].n < question["result"].d ? "text" : "number";
 
-  var answer = '<div class="mixed-fraction my-answer-container bg-2">答案:\
-    <input class="main my-answer" type="'+type+'" placeholder="答案" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" onblur="onLeave(event)" data-correct="'+ question["value"] + '"/>'
+  var answer = '<div class="mixed-fraction my-answer-container bg-2"> = \
+    <input class="main my-answer" type="'+type+'" placeholder="'+getTextForLan(lanInThisPage,"answer")+'" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" onblur="onLeave(event)" data-correct="'+ question["value"] + '"/>'
   if (question2.length != question["term"].length) {
     answer += '<div class="fraction">\
-      <input class="numerator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="分子"/>\
-      <input class="denominator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="分母"/>\
+      <input class="numerator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="'+getTextForLan(lanInThisPage,"numerator")+'"/>\
+      <input class="denominator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="'+getTextForLan(lanInThisPage,"denominator")+'"/>\
       </div>'
   }
   answer += '<span class="score"></span></div>'
@@ -234,6 +249,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('checkResult').addEventListener('click', function () {
     checkResult(true);
   });
+  
+  let lan = document.getElementById("language-select-desktop").value;
+  if(lan.indexOf("cn")>0){
+    lanInThisPage="cn";
+  }else{
+    lanInThisPage="en";
+  }
   //document.getElementById('toc-static').innerHTML="";
   // switchQuestions();
   // const clickEvent = new Event("click");
