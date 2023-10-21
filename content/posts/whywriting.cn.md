@@ -2,6 +2,8 @@
 title = '为什么开始写作这件事'
 date = 2023-10-20T23:17:56+08:00
 draft = false
+home = true
+summary = "20年后的今天，终于在网上写下第一篇文章"
 description = '写作的一些思考 认识世界 认识自己 如何写好一篇文章'
 +++
 
