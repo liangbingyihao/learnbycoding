@@ -199,7 +199,7 @@ function getFormulaHtml(question) {
       <input class="denominator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="'+getTextForLan(lanInThisPage,"denominator")+'"/>\
       </div>'
   }
-  answer += '<span class="score"></span> <button class="mini" onclick="showDetailDialog("'+"Coming soon..."+'")"> '+getTextForLan(lanInThisPage,"detail")+' </button> </div>'
+  answer += '<span class="score"></span> </button> </div>'
   return '<div class="mixed-fraction bg-1">' + question2 + '</div> ' + answer
 }
 
@@ -247,6 +247,21 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('nextGroup').addEventListener('click', function () {
     switchQuestions();
   });
+
+  document.addEventListener("keydown", function(event) {
+    // 处理按键按下状态
+    console.log("按键按下：" + event.key);
+  
+    // 在这里添加按键按下时的逻辑
+  });
+  
+  document.addEventListener("keyup", function(event) {
+    // 处理按键释放状态
+    console.log("按键释放：" + event.key);
+  
+    // 在这里添加按键释放时的逻辑
+  });
+
   document.getElementById('checkResult').addEventListener('click', function () {
     checkResult(true);
   });
