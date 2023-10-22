@@ -1,0 +1,221 @@
+<style>
+    /* 基本样式 */
+    form {
+        max-width: 400px;
+        margin: 12px;
+        font-family: Arial, sans-serif;
+    }
+
+    label {
+        display: inline-block;
+        width: 30%;
+        /* 调整 label 宽度，根据需要 */
+        text-align: right;
+        /* 使 label 文本右对齐 */
+        margin-right: 5%;
+        /* 添加间距 */
+    }
+
+    select {
+        display: inline-block;
+        width: 65%;
+        /* 调整 input 宽度，根据需要 */
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    /* 迷你按钮样式 */
+    .mini {
+        font-size: 12px;
+        /* 调整字体大小 */
+        padding: 5px 10px;
+        /* 调整内边距，根据需要自定义 */
+        border: 1px solid #ccc;
+        /* 添加边框 */
+        background-color: #f0f0f0;
+        /* 背景颜色 */
+        color: #333;
+        /* 文本颜色 */
+        cursor: pointer;
+        /* 鼠标指针样式，可以是 pointer、hand 或其他 */
+
+        /* 可选的样式，根据需要自定义 */
+        border-radius: 3px;
+        /* 圆角边框 */
+        text-decoration: none;
+        /* 去除文本下划线 */
+
+        /* 鼠标悬停时的样式，根据需要自定义 */
+        transition: background-color 0.3s;
+    }
+
+    .mini:hover {
+        background-color: #ddd;
+        /* 鼠标悬停时的背景颜色 */
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+
+        label,
+        select {
+            width: 100%;
+            /* 在小屏幕上让 label 和 input 占据整行 */
+            text-align: left;
+            /* 恢复 label 文本的左对齐 */
+            margin-right: 0;
+            /* 移除间距 */
+        }
+    }
+
+
+
+    .red-text {
+        color: red;
+    }
+
+    .blue-text {
+        color: blue;
+    }
+
+    .score {
+        margin-left: 16px;
+    }
+
+    .bg-1 {
+        background-color: #f0f0f0
+    }
+
+    .bg-2 {
+        background-color: #f0f8ff
+    }
+
+    /* 修改有序列表的行距和字体大小 */
+    #result ol {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    /* 修改列表项的字体大小 */
+    #result li {
+        font-size: 18px;
+    }
+
+    .question-menu {
+        font-size: 20px;
+    }
+
+    .mixed-fraction {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin-bottom: 4px;
+        font-size: 24px;
+    }
+
+    .no-part {
+        font-weight: bold;
+        color: blue;
+        margin: 4px;
+    }
+
+    .fraction {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .my-answer {
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+    }
+
+    .numerator {
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px;
+        text-align: center;
+    }
+
+    .denominator {
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #000;
+        text-align: center;
+    }
+
+    input {
+        width: 70px;
+    }
+
+    /* 弹出框外部样式 */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+
+    /* 弹出框内容样式 */
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 2%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        width: 60%;
+        /* 调整宽度 */
+        max-width: 600px;
+        /* 最大宽度 */
+        z-index: 1000;
+    }
+
+    /* 关闭按钮样式 */
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+
+        /* 在小屏幕上自适应样式 */
+        .modal-content {
+            width: 90%;
+            /* 调整宽度 */
+            max-width: 90%;
+            /* 最大宽度 */
+        }
+    }
+</style>

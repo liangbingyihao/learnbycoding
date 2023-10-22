@@ -2,7 +2,8 @@ var  lanInThisPage;
 const cnTextForLans = {
   answer:["答案","int."],
   numerator:["分子","num."],
-  denominator:["分母","denom."]
+  denominator:["分母","denom."],
+  detail:["过程","detail"]
 }
 function getTextForLan(lan,k){
   let texts = cnTextForLans[k]
@@ -198,8 +199,8 @@ function getFormulaHtml(question) {
       <input class="denominator my-answer" type="number" onkeydown="nextInput(event, this)"  onfocus="startInput(event)" placeholder="'+getTextForLan(lanInThisPage,"denominator")+'"/>\
       </div>'
   }
-  answer += '<span class="score"></span></div>'
-  return '<div class="mixed-fraction bg-1">' + question2 + '</div>' + answer
+  answer += '<span class="score"></span> <button class="mini" onclick="showDetailDialog("'+"Coming soon..."+'")"> '+getTextForLan(lanInThisPage,"detail")+' </button> </div>'
+  return '<div class="mixed-fraction bg-1">' + question2 + '</div> ' + answer
 }
 
 function switchQuestions() {
@@ -230,18 +231,18 @@ function switchQuestions() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('numPerGroup').addEventListener('change', function () {
-    const container = document.getElementById('result');
-    container.innerHTML = '';
-  });
-  document.getElementById('levelGroup').addEventListener('change', function () {
-    const container = document.getElementById('result');
-    container.innerHTML = '';
-  });
-  document.getElementById('sizeGroup').addEventListener('change', function () {
-    const container = document.getElementById('result');
-    container.innerHTML = '';
-  });
+  // document.getElementById('numPerGroup').addEventListener('change', function () {
+  //   const container = document.getElementById('result');
+  //   container.innerHTML = '';
+  // });
+  // document.getElementById('levelGroup').addEventListener('change', function () {
+  //   const container = document.getElementById('result');
+  //   container.innerHTML = '';
+  // });
+  // document.getElementById('sizeGroup').addEventListener('change', function () {
+  //   const container = document.getElementById('result');
+  //   container.innerHTML = '';
+  // });
 
   document.getElementById('nextGroup').addEventListener('click', function () {
     switchQuestions();
@@ -256,6 +257,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }else{
     lanInThisPage="en";
   }
+  // document.getElementById('setting').addEventListener('click', function () {
+  //   showDialog("hahaha","aaaaaa");
+  // });
+  // console.log(`{{.Params.custom_html | safeHTML}}`)
   //document.getElementById('toc-static').innerHTML="";
   // switchQuestions();
   // const clickEvent = new Event("click");

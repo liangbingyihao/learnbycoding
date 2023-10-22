@@ -1,0 +1,70 @@
+<script>
+    // 获取弹出框和按钮的引用
+    var modal = document.getElementById('settingModal');
+    var showModalBtn = document.getElementById('showModal');
+    var closeModalBtn = modal.querySelector('#closeModal');
+
+    var levelContainer = modal.querySelector('#levelGroup');
+    var numberContainer = modal.querySelector('#numPerGroup');
+    var sizeContainer = modal.querySelector('#sizeGroup');
+    var lan = levelContainer.getAttribute("data-lan");
+
+    var detailModal = document.getElementById('detailModal');
+    var detailContainer = detailModal.querySelector("#content");
+    var closeDetailModalBtn = detailModal.querySelector('#closeModal');
+
+    // 点击按钮显示弹出框
+    showModalBtn.addEventListener('click', function () {
+        modal.style.display = 'block';
+    });
+
+    // 点击关闭按钮或模态框外部关闭弹出框
+    closeModalBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    // 点击关闭按钮或模态框外部关闭弹出框
+    closeDetailModalBtn.addEventListener('click', function () {
+        detailModal.style.display = 'none';
+    });
+
+
+    window.addEventListener('click', function (event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+        if (event.target == detailModal) {
+            modal.style.display = 'none';
+        }
+    });
+
+
+    var resultContainer = document.getElementById('result');
+
+    function getSelectText(select) {
+        var selectedOption = select.options[select.selectedIndex];
+        return selectedOption.text;
+    }
+
+    function setCurrentSetting() {
+        var level = getSelectText(levelContainer);
+        var number = getSelectText(numberContainer);
+        var size = getSelectText(sizeContainer);
+        if (lan == "cn") {
+            resultContainer.innerHTML = `当前测验配置：<p>类型:${level}<p>每次题量:${number}<p>级别:${size}<p><b>可回车或空格切换输入框/切换题目</b></p>`;
+        } else {
+            resultContainer.innerHTML = `Current quiz setting:<p>Type:${level}<p>Quantity:${number}<p>Level:${size}<p><b>Switch between input fields or switch between questions using Enter or Spacebar</b></p>`;
+        }
+    }
+
+    levelContainer.addEventListener('change', setCurrentSetting);
+    levelContainer.addEventListener('change', setCurrentSetting);
+    sizeContainer.addEventListener('change', setCurrentSetting);
+
+    function showDetailDialog(content) {
+        detailModal.style.display = 'block';
+        detailContainer.textContent = content;
+    }
+    setCurrentSetting();
+
+</script>
