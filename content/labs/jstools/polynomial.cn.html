@@ -8,4 +8,28 @@ summary: "中小学生运算能力辅助工具 中学 初中 高中 多项式运
 description: "中小学生运算能力辅助工具 中学 初中 高中 多项式运算 合并同类项 因式分解 自动出题 纠错"
 tags: ["小工具","多项式"]
 ---
+<style>
+body {
+    --keycap-height: 32px;
+    --keycap-font-size: 30px;
+    --keycap-shift-font-size: 9px;
+    --keycap-small-font-size: 9px;
+    --keycap-extra-small-font-size: 9px;
+    --keyboard-toolbar-font-size: 16px;
+    --keycap-gap: 1px;
+  }
+</style>
+<math-field  id="formula">f(x)=</math-field>
+<div id="result">aa</div>
+<script src="https://unpkg.com/mathlive"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
 
+  document.getElementById('formula').addEventListener('input',(ev) => {
+  // `ev.target` is an instance of `MathfieldElement`
+  document.getElementById('result').innerHTML=ev.target.value
+});
+document.getElementById('formula').value="2 + \\frac{q}{p}";
+})
+
+</script>

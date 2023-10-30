@@ -1,0 +1,127 @@
+---
+title: "运算大师"
+date: 2023-10-12T11:20:50+08:00
+draft: false
+description: "中小学生运算能力辅助工具 学龄前 小学生 初中生都适用 10以内加减 100以内加减 乘除法运算 分数小数 混合运算 简便运算 自动出题 纠错"
+categories: ["tools","maths"]
+tags: ["maths"]
+---
+<style>
+  .red-text {
+    color: red;
+  }
+
+  .blue-text {
+    color: blue;
+  }
+
+  .score {
+    margin-left: 16px;
+  }
+
+.bg-1 {
+    background-color:#f0f0f0
+}
+.bg-2 {
+    background-color:#f0f8ff
+}
+  /* 修改有序列表的行距和字体大小 */
+  #result ol {
+  font-size: 20px;
+  line-height: 1.5;
+  }
+
+  /* 修改列表项的字体大小 */
+  #result li {
+  font-size: 18px;
+  }
+
+  .question-menu {
+    font-size: 20px;
+  }
+  
+  .mixed-fraction {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 4px;
+    font-size: 24px;
+  }
+
+  .no-part {
+    font-weight: bold;
+    color: blue;
+    margin: 4px;
+  }
+
+  .fraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .my-answer {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+  }
+
+  .numerator {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px ;
+    text-align: center;
+  }
+
+  .denominator {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #000;
+    text-align: center;
+  }
+  input {
+    width: 70px;
+  }
+</style>
+<div>
+<div class="question-menu">
+  年级
+  <select id="levelGroup">
+    <option value="1">10以内</option>
+    <option value="2">100以内</option>
+    <option value="3">乘除</option>
+    <option value="4" selected>小数&分数</option>
+    <option value="7">有理数</option>
+  </select>
+ 题量
+  <select id="numPerGroup">
+    <option value="1">1</option>
+    <option value="3">3</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+  </select>
+  <p>
+  难度
+   <select id="sizeGroup">
+     <option value="1">单项</option>
+     <option value="2" selected>多项</option>
+   </select>
+
+    <button id="nextGroup">新题</button>
+    <button id="checkResult">答案</button>
+  </div>
+    可回车或空格切换输入框/切换题目
+    <p id="score" class="red-text score"></p>
+    <div id="result"></div>
+  </div>
+  
+  <script src="/js/index.js?version=15"></script>
+  <script src="/js/calculator.js?version=39"></script>
