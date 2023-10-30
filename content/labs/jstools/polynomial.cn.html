@@ -9,27 +9,34 @@ description: "中小学生运算能力辅助工具 中学 初中 高中 多项�
 tags: ["小工具","多项式"]
 ---
 <style>
-body {
+/* body {
     --keycap-height: 32px;
-    --keycap-font-size: 30px;
+    --keycap-font-size: 24px;
     --keycap-shift-font-size: 9px;
     --keycap-small-font-size: 9px;
     --keycap-extra-small-font-size: 9px;
-    --keyboard-toolbar-font-size: 16px;
+    --keyboard-toolbar-font-size: 24px;
     --keycap-gap: 1px;
-  }
+  } */
 </style>
-<math-field  id="formula">f(x)=</math-field>
-<div id="result">aa</div>
-<script src="https://unpkg.com/mathlive"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-
-  document.getElementById('formula').addEventListener('input',(ev) => {
-  // `ev.target` is an instance of `MathfieldElement`
-  document.getElementById('result').innerHTML=ev.target.value
-});
-document.getElementById('formula').value="2 + \\frac{q}{p}";
-})
-
-</script>
+{{< calculator-css>}}
+<div>
+  <button id="nextGroup">新题</button>
+  <button id="checkResult">答案</button>
+  <button id="showModal">设置</button>
+  <p id="score" class="red-text score"></p>
+  <div id="result">
+    <div><math-field readonly>(-11)x^2+1x^2+7zx+(-12)zx+3z+7z</math-field></div>
+    <div><math-field></math-field></div>
+    <div><math-field readonly>(-11)x^2+1x^2+7zx+(-12)zx+3z+7z</math-field></div>
+    <div><math-field></math-field></div>
+    <div><math-field readonly>(-11)x^2+1x^2+7zx+(-12)zx+3z+7z</math-field></div>
+    <div><math-field></math-field></div>
+  </div>
+</div>
+{{< dialog-setting-cn>}}
+{{< dialog-calculator-detail>}}
+{{< dialog-calculator-js>}}
+<script src="/js/mathlive.min.js?version=15"></script>
+<script src="/js/index.js?version=15"></script>
+<script src="/js/polynomial.js?version=1"></script>
