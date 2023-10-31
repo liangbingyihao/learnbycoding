@@ -8,6 +8,9 @@
     var numberContainer = modal.querySelector('#numPerGroup');
     var sizeContainer = modal.querySelector('#sizeGroup');
     var lan = levelContainer.getAttribute("data-lan");
+    var descLevel = levelContainer.getAttribute("data-desc");
+    var descNumber = numberContainer.getAttribute("data-desc");
+    var descSize = sizeContainer.getAttribute("data-desc");
 
     var detailModal = document.getElementById('detailModal');
     var detailContainer = detailModal.querySelector("#content");
@@ -51,9 +54,11 @@
         var number = getSelectText(numberContainer);
         var size = getSelectText(sizeContainer);
         if (lan == "cn") {
-            resultContainer.innerHTML = `当前测验配置：<p>类型:${level}<p>每次题量:${number}<p>级别:${size}<p><b>可回车或空格切换输入框/切换题目</b></p>`;
+            //<p><b>可回车或空格切换输入框/切换题目</b></p>
+            resultContainer.innerHTML = `当前测验配置：<p>${descLevel}:${level}<p>${descSize}:${size}<p>${descNumber}:${number}`;
         } else {
-            resultContainer.innerHTML = `Current quiz setting:<p>Type:${level}<p>Quantity:${number}<p>Level:${size}<p><b>Switch between input fields or switch between questions using Enter or Spacebar</b></p>`;
+            //<p><b>Switch between input fields or switch between questions using Enter or Spacebar</b></p>
+            resultContainer.innerHTML = `Current quiz setting:<p>${descLevel}:${level}<p>${descSize}:${size}<p>${descNumber}:${number}`;
         }
     }
 
