@@ -19,7 +19,7 @@ function getTextForLan(lan, k) {
 
 function checkResult(force = false) {
   // 获取所有具有相同类名的元素
-  const elements = document.getElementsByClassName("answer-container");
+  const elements = document.getElementsByClassName("my-answer-container");
 
   // 设置这些元素的可见性
   for (let i = 0; i < elements.length; i++) {
@@ -35,9 +35,9 @@ function showMessage(element, msg, show) {
   element.style.display = show;
 }
 
-function getFormulaHtml(question) {
-  console.log(question)
-  return '<math-field readonly>' + question.question + '</math-field><div style="visibility: hidden;" class="answer-container"><math-field readonly>' + question.answer + '</math-field></div>'
+function getFormulaHtml(question,sn) {
+  return '<div class="bg-1"><span class="no-part">' + sn + '. </span><math-field readonly>' + question.question + '</math-field></div>\
+  <div style="visibility: hidden;" class="my-answer-container bg-2"><span class="no-part"> = </span><math-field readonly>' + question.answer + '</math-field></div>'
 }
 
 function switchQuestions() {
@@ -55,7 +55,7 @@ function switchQuestions() {
       const li = document.createElement('div');
       // li.innerHTML = question["term"].replace(/'([^']+)'/g, '<span class="blue-text">$1</span>')
       // +'<p class="my-answer-container"><input class="my-answer" type="text" placeholder="答案" data-correct="'+question["resultStr"]+'"> <span class="score"></span>'
-      li.innerHTML = getFormulaHtml(question);
+      li.innerHTML = getFormulaHtml(question,i + 1);
 
       ol.appendChild(li);
       questions.push(question);
