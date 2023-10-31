@@ -1,0 +1,25 @@
+---
+title: "Rational Number"
+date: 2023-10-12T11:20:50+08:00
+draft: false
+home: true
+"summary": "Operations within 10 for Addition and Subtraction, within 100 for Addition and Subtraction, Multiplication and Division. Fraction and Decimal Operations, Mixed OperationsMathematical Skills Support Tool for Elementary and Middle School Students. Suitable for Preschoolers,
+Elementary School Students, and Middle School Students. Simple Calculations, Automatic Question Generation."
+description: "Addition and Subtraction within 10, Addition and Subtraction within 100, Multiplication and Division
+Operations, Fractions, Decimals, Mixed Operations, Simple Calculations, Automatic Problem Generation, Error Correction"
+tags: ["Tools","Rational Number","Basic Operations"]
+---
+{{< calculator-css>}}
+  <div>
+    <button id="nextGroup">Next Quize</button>
+    <button id="checkResult">Check</button>
+    <button id="showModal">Setting</button>
+    <p id="score" class="red-text score"></p>
+    <div id="result"> Switch between input fields or switch between questions using Enter or Spacebar</div>
+  </div>
+  {{< fraction-setting-en>}}
+  {{< dialog-calculator-detail>}}
+  {{< dialog-calculator-js>}}
+  <script src="/js/mathlive.min.js?version=2"></script>
+  <script src="/js/index.js?version=15"></script>
+  <script src="/js/fraction.js?version=3"></script>

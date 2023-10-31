@@ -9,9 +9,11 @@ draft: true
   }
 </style>
 <div>
-  <input class="red-text" type="text" id="textInput" placeholder="输入完成后触发事件">
+  <input class="red-text" type="text" id="textInput1" placeholder="输入完成后触发事件">
+  <div><math-field  id="textInput">(-11)x^2+1x^2+7zx+(-12)zx+3z+7z</math-field></div>
   <div id="result">aa</div>
 </div>
+<script src="/js/mathlive.min.js?version=2"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const inputElement = document.getElementById('textInput');
@@ -19,13 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // 添加input事件监听器
   inputElement.addEventListener('keydown', function(event) {
       const inputValue = event.target.value;
-      document.getElementById('result').innerHTML=event.key
+      document.getElementById('result').innerHTML=inputValue
       // 在这里执行你的处理逻辑，比如验证、搜索建议等
   });
   inputElement.addEventListener('blur', function(event) {
     // 输入框失去焦点时，可能输入法窗口已关闭
     // 在这里执行相关操作
-      document.getElementById('result').innerHTML="finish"
+      document.getElementById('result').innerHTML=event.target.value
   });
 })
 </script>
