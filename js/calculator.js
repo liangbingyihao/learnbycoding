@@ -248,20 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
     switchQuestions();
   });
 
-  document.addEventListener("keydown", function(event) {
-    // 处理按键按下状态
-    console.log("按键按下：" + event.key);
-  
-    // 在这里添加按键按下时的逻辑
-  });
-  
-  document.addEventListener("keyup", function(event) {
-    // 处理按键释放状态
-    console.log("按键释放：" + event.key);
-  
-    // 在这里添加按键释放时的逻辑
-  });
-
   document.getElementById('checkResult').addEventListener('click', function () {
     checkResult(true);
   });
