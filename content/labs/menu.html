@@ -1,0 +1,49 @@
+---
+title: "Menu"
+date: 2023-10-31T22:42:19+08:00
+draft: true
+---
+<style>
+    /* 样式用于控制目录项的缩进 */
+    .tree-item {
+        margin-left: 20px;
+    }
+</style>
+<ul id="tree">
+    <li>Root
+        <ul>
+            <li class="tree-item">Item 1
+                <ul>
+                    <li class="tree-item">Subitem 11</li>
+                    <li class="tree-item">Subitem 12</li>
+                </ul>
+            </li>
+            <li class="tree-item">Item 2
+                <ul>
+                    <li class="tree-item">Subitem 21</li>
+                    <li class="tree-item">Subitem 22</li>
+                </ul>
+            </li>
+            <li class="tree-item">Item 3
+                <ul>
+                    <li class="tree-item">Subitem 31</li>
+                    <li class="tree-item">Subitem 32</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // 用 JavaScript 添加交互性
+        const treeItems = document.querySelectorAll(".tree-item");
+        treeItems.forEach(item => {
+            item.addEventListener("click", () => {
+                console.log(item)
+                item.querySelector("ul").classList.toggle("hidden");
+            });
+        });
+    })
+</script>
