@@ -1,0 +1,115 @@
+---
+title: "Math Tools Collection (Continuously Evolving)"
+date: 2023-10-12T11:20:50+08:00
+draft: false
+weight: 100
+summary: "Involving fundamental math problems, automatic question generation, and displaying the calculation process."
+description: "Support Tool for Primary and Middle School Students, Suitable for Preschool, Elementary, and Junior High School Students, covering Addition and Subtraction within 10, Addition and Subtraction within 100, Multiplication and Division, Fraction and Decimal Operations, Mixed Operations, Polynomial Operations, Simplified Calculations, Automatic Question Generation, and Error Correction."
+categories: ["tools","maths"]
+tags: ["maths"]
+---
+<style>
+  /* 树状菜单样式 */
+  .tree-menu {
+      padding: 0;
+      list-style-type: none;
+  }
+
+  .caret {
+      cursor: pointer;
+      user-select: none;
+  }
+
+  .caret::before {
+      content: "\25B6";
+      color: #555;
+      display: inline-block;
+      margin-right: 6px;
+  }
+
+  .caret.down::before {
+      transform: rotate(90deg);
+  }
+
+  .nested {
+      display: none; /* 默认情况下展开所有节点 */
+      margin-left: 20px;
+  }
+
+  .active {
+      display: block;
+  }
+
+  /* 样式调整 */
+  ul {
+      padding: 0;
+  }
+
+  li {
+      list-style-type: none;
+      margin-bottom: 5px;
+  }
+
+  .tree-menu a {
+      text-decoration: none;
+      color: #333;
+  }
+
+  .tree-menu a:hover {
+      text-decoration: underline;
+  }
+
+  /* 响应式布局 */
+  @media screen and (max-width: 600px) {
+      .nested {
+          margin-left: 10px;
+      }
+  }
+</style>
+<ul class="tree-menu">
+  <li>
+      <span class="caret down">Elementary School</span>
+      <ul class="nested active">
+          <li>
+              <span class="caret down">Basic Operations</span>
+              <ul class="nested active">
+                  <li><a href="/labs/jstools/calculator/"  target="_blank">Basic Operations:+-×÷</a></li>
+                  <li><a href="/labs/jstools/fraction/"  target="_blank">Rational Ops</a></li>
+              </ul>
+          </li>
+          <!-- <li>
+              <span class="caret">基本运算2</span>
+              <ul class="nested">
+                  <li><a href="/cn/labs/jstools/calculator/"  target="_blank">基础运算：加减乘除</a></li>
+                  <li><a href="/cn/labs/jstools/fraction/"  target="_blank">有理数基本运算：小数、分数、正负数加减乘除</a></li>
+              </ul>
+          </li>
+          <li><a href="#">File 1.1</a></li> -->
+      </ul>
+  </li>
+  <li>
+      <span class="caret down">Middle School</span>
+      <ul class="nested active">
+        <li>
+            <span class="caret down">Polynomial Operations</span>
+            <ul class="nested active">
+                <li><a href="/labs/jstools/polynomial/"  target="_blank">Combining Like Terms</a></li>
+                <li><a href="#">Factorization (Coming Soon)</a></li>
+            </ul>
+        </li>
+      </ul>
+  </li>
+  
+</ul>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      var toggler = document.querySelectorAll(".caret");
+      for (var i = 0; i < toggler.length; i++) {
+          toggler[i].addEventListener("click", function() {
+            console.log(this.parentElement.querySelector(".nested"))
+              this.parentElement.querySelector(".nested").classList.toggle("active");
+              this.classList.toggle("down");
+          });
+      }
+  });
+</script>

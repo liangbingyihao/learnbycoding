@@ -19,6 +19,7 @@ theme = 'FeelIt'
   # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
   description = "关于编程、写作、生活的点滴记录。有趣的工具合集 数学语文英语 测试 学习小工具合集 有理数混合计算 简便运算 编程 爱好者 "
   # 网站图片, 用于 Open Graph 和 Twitter Cards
+  mainSections = ['posts', 'labs']
 
 # 作者配置
 [author]
@@ -97,7 +98,7 @@ defaultContentLanguageInSubdir = false
       name = "点滴"
       url = "/posts/"
       title = ""
-      weight = 3
+      weight = 1
     [[languages.cn.menu.main]]
       identifier = "labs"
       pre = ""
@@ -113,7 +114,7 @@ defaultContentLanguageInSubdir = false
       name = "标签"
       url = "/tags/"
       title = ""
-      weight = 1
+      weight = 3
     [[languages.cn.menu.main]]
       identifier = "about"
       pre = ""

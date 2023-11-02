@@ -22,7 +22,9 @@
         {{- if ne $posts.enable false | and .Site.RegularPages -}}
             <div class="summary-card">
             {{- /* Paginate */ -}}
-            {{- $pages := where .Site.RegularPages "Params.home" true -}}
+            <!-- {{- $pages := where .Site.RegularPages "Params.home" true -}} -->
+            <!-- {{- $pages := where .Site.RegularPages "Type" "posts" -}} -->
+            {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
             {{- if .Site.Params.page.hiddenFromHomePage -}}
                 {{- $pages = where $pages "Params.hiddenfromhomepage" false -}}
             {{- else -}}
