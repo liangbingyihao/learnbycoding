@@ -1,7 +1,7 @@
 +++
-title = 'Huamei'
+title = 'Huamei is "suan suan de"'
 date = 2023-11-03T23:33:36+08:00
-draft = true
+draft = false
 tags = ["Learning Chinese","Chinese joke"]
 summary = "Discover the humor in a cross-linguistic joke that plays with the dual meanings of words. Unveil the witty conversation between Little Huamei and her mother as they discuss not feeling well. Explore the use of '酸 (suān)酸的' to describe both physical discomfort and the sour taste of preserved plums. This humorous interplay of language showcases the richness of linguistic expressions. Delve into the world of wordplay and cultural nuances with this delightful joke explanation."
 +++
