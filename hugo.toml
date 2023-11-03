@@ -132,7 +132,15 @@ defaultContentLanguageInSubdir = false
     title = 'QuizIt'
     weight = 2
     [languages.en.params]
-      subtitle = 'Records of Programming, Writing, and Life. An Exciting Collection of Tools. A Collection of Learning Tools for Mathematics, Language, and English Testing. Rational Number Mixed Calculations, Simple Calculations, Programming'
+      subtitle = 'Records of Programming, Writing, and Life. An Exciting Collection of Tools. A Collection of Learning Tools for Mathematics, Language, and Chinese Testing. Rational Number Mixed Calculations, Simple Calculations, Programming'    
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      pre = ""
+      post = ""
+      name = "Explore"
+      url = "/posts/"
+      title = ""
+      weight = 1
     [[languages.en.menu.main]]
       identifier = "labs"
       pre = ""
@@ -148,7 +156,7 @@ defaultContentLanguageInSubdir = false
       name = "Tags"
       url = "/tags/"
       title = ""
-      weight = 1
+      weight = 3
     [[languages.en.menu.main]]
       identifier = "about"
       pre = ""
