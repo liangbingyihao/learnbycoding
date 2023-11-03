@@ -1,14 +1,1 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>All Posts - 二熊线上基地</title>
-        <link>https://www.sunnygrace.buzz/posts/</link>
-        <description>All Posts | 二熊线上基地</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 20 Nov 2022 09:03:20 -0800</lastBuildDate><atom:link href="https://www.sunnygrace.buzz/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>开张大吉</title>
-    <link>https://www.sunnygrace.buzz/posts/my-first-post/</link>
-    <pubDate>Sun, 20 Nov 2022 09:03:20 -0800</pubDate><guid>https://www.sunnygrace.buzz/posts/my-first-post/</guid>
-    <description><![CDATA[Introduction This is bold text, and this is emphasized text.
-Visit the Hugo website!]]></description>
-</item>
-</channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - QuizIt</title><link>https://www.quizcub.com/posts/</link><description>All Posts | QuizIt</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 03 Nov 2023 21:33:53 +0800</lastBuildDate><atom:link href="https://www.quizcub.com/posts/" rel="self" type="application/rss+xml"/><item><title>Miss Jin is not surnamed Pan.</title><link>https://www.quizcub.com/posts/whyfunny/panlaoshi/</link><pubDate>Fri, 03 Nov 2023 21:33:53 +0800</pubDate><guid>https://www.quizcub.com/posts/whyfunny/panlaoshi/</guid><description><![CDATA[Explore the humor behind a classic joke by delving into the cultural and linguistic nuances of Chinese names. Discover the amusing mix-up between a teacher&rsquo;s name, &lsquo;Jin Lian,&rsquo; and the infamous character &lsquo;Pan Jinlian&rsquo; from the Chinese novel &lsquo;Water Margin.&rsquo; Uncover the importance of surnames (Xing) and given names (Ming) in Chinese naming conventions, and how this misunderstanding creates a delightful twist in the joke.]]></description></item></channel></rss>
