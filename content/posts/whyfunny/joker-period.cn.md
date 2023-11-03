@@ -2,8 +2,8 @@
 title = '多义词幽默：利用“period”打造有趣笑话的多层次效应'
 date = 2023-11-02T01:24:15+08:00
 draft = false
-tags = ["English Learning","找笑点"]
-summary= "掌握多义词的幽默 period female's menstruation"
+tags = ["English Learning","英语笑话解释"]
+summary= "英语笑话解释 英文学习 轻松学英语 掌握多义词的幽默 period female's menstruation"
 +++
 ### 笑话
 I was furious at my English teacher for dropping me down to a B for missing just a single period.
