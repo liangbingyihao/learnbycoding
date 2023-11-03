@@ -6,7 +6,8 @@ tags = ["Learning English","英语笑话"]
 summary= "英语笑话解释 英文学习 轻松学英语 掌握多义词的幽默 period female's menstruation"
 +++
 ### 笑话
-I was furious at my English teacher for dropping me down to a B for missing just a single period.
+I was furious at my English teacher for dropping me down to a B for missing just a single period. 
+
 However, I'm sure he'll be worried enough to increase it to an A after I inform him that I've actually missed three periods.
 
 ### 解释
